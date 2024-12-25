@@ -1,3 +1,25 @@
 {{define "index"}}
-Hello, {{.}}!!!
+{{range $index, $flaquete := .}}
+	name: {{Deref $flaquete.Nombre}}
+<br />
+
+<h1>insertar jugador </h1>
+
+
+{{end}}
+<form class="form-inline" action="/addPlayer" method="post" enctype="multipart/form-data" >
+	<label for="nombre">Ingrese su nombre</label>
+	<input id="nombre" name="nombre" required/> 
+	<label for="apellido">Ingrese su apellido</label>
+	<input id="apellido" name="apellido" required/> 
+	<label for="DNI">Ingrese su DNI</label>
+	<input id="DNI" name="DNI" required/> 
+	<label for="telefono">Ingrese su telefono</label>
+	<input id="telefono" name="telefono" required/> 
+	<label for="fecha_nacimiento">Ingrese su fecha de nacimiento</label>
+	<input id="fecha_nacimiento" name="fecha_nacimiento" type="date" required/> 
+	<label for="numero_socio">Ingrese su numero de socio</label>
+	<input id="numero_socio" name="numero_socio" required/> 
+	<button type="submit">Submit!</button>
+</form>
 {{end}}
